@@ -25,7 +25,7 @@ If you're in RStudio, you can also click on Build > Check.
 
 > If ever you think these warnings or notes are not justified, leave a comment when submitting where you specify why you think this is not justified.
 
-## Use `{rhub}`
+### Use `{rhub}`
 
 The `{rhub}` allows you to check on several platforms, and for CRAN. 
 

@@ -75,6 +75,12 @@ Neither the title nor the description should start with "A package..." or with t
 
 If you quote another package, an article/book or a website/API, put its name between single quote `'`.
 
+#### USE DOI to link to a  references in the Description
+
+Authors (year) <DOI:.....>
+
+(see <https://en.wikipedia.org/wiki/Digital_object_identifier> )
+
 ### Documentation 
 
 #### Use canonical and https url 

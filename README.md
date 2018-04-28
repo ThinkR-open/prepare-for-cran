@@ -27,7 +27,7 @@ If you're in RStudio, you can also click on Build > Check.
 
 ### Use `{rhub}`
 
-The `{rhub}` allows you to check on several platforms, and for CRAN. 
+The `{rhub}` package and API allow you to check your package on several platforms, and for CRAN with `rhub::check_for_cran()`.
 
 More about `{rhub}`: <https://github.com/r-hub/rhub>
 

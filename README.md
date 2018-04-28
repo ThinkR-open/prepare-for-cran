@@ -65,11 +65,15 @@ Note: this should be caught by r-hub.
 
 #### Polish the description of your package
 
-A CRAN-proof package should have a long description that explains what the package does and why it is "original" regarding what is already on the CRAN.
+A CRAN-proof package should have a long description that explains what the package does,  what are the benefits, what is new and how does it differ from what is already on the CRAN.
 
 #### Do not put 'package' in the DESCRIPTION
 
 Neither the title nor the description should start with "A package..." or with the name of the package.
+
+#### Use quote if needed
+
+If you quote another package, an article/book or a website/API, put its name between single quote `'`.
 
 ### Documentation 
 

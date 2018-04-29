@@ -78,9 +78,10 @@ If you quote another package, an article/book or a website/API, put its name bet
 #### Use angle brackets for auto-linking
 
 If you write an R interface to an API or implement an algorithm from a published article/book, add an URL for the API or article in the 'Description' field of your DESCRIPTION file in the form
+
 ```
 API name <http:...> or <https:...>
-authors (year) <doi:...>
+authors (year) <DOI:...> (see <https://en.wikipedia.org/wiki/Digital_object_identifier> )
 authors (year) <arXiv:...>
 authors (year, ISBN:...)
 ```

@@ -75,9 +75,17 @@ Neither the title nor the description should start with "A package..." or with t
 
 If you quote another package, an article/book or a website/API, put its name between single quote `'`.
 
-#### Use angle brackets for auto-linking
+#### Use parentheses after function names
 
-If you write an R interface to an API or implement an algorithm from a published article/book, add an URL for the API or article in the 'Description' field of your DESCRIPTION file in the form
+If a function name is used in your DESCRIPTION, make sure to follow it with parentheses.  e.g., "provides a drop-in replacement for cat() from the 'base' package."
+
+#### Cite a reference for implementation of a method or linking to a service.
+
+If you write an R interface to an API or implement an algorithm from a published article/book, add an reference to the publication as a DOI, ISBN, or similar canonical link, or UR for the API or article in the 'Description' field of your DESCRIPTION file.
+
+#### Use angle brackets for auto linking
+
+When linking to an article or website in the DESCRIPTION, use angle brackets to auto-link.
 
 ```
 API name <http:...> or <https:...>

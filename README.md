@@ -75,11 +75,17 @@ Neither the title nor the description should start with "A package..." or with t
 
 If you quote another package, an article/book or a website/API, put its name between single quote `'`.
 
-#### USE DOI to link to a  references in the Description
+#### Use angle brackets for auto-linking
 
-Authors (year) <DOI:.....>
+If you write an R interface to an API or implement an algorithm from a published article/book, add an URL for the API or article in the 'Description' field of your DESCRIPTION file in the form
 
-(see <https://en.wikipedia.org/wiki/Digital_object_identifier> )
+```
+API name <http:...> or <https:...>
+authors (year) <DOI:...> (see <https://en.wikipedia.org/wiki/Digital_object_identifier> )
+authors (year) <arXiv:...>
+authors (year, ISBN:...)
+```
+with no space after `https:`, `doi:`, `arXiv:` and angle brackets for auto-linking. 
 
 ### Documentation 
 

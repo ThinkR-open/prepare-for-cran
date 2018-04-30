@@ -51,7 +51,7 @@ If you resubmit after a CRAN feedback, add 1 to the patch component of your vers
 
 #### Don't forget to drop the dev component of your version number
 
-If you have a major.minor.patch.dev version number, don't drop the dev element.
+If you have a major.minor.patch.dev version number, don't forget to drop the dev element.
 
 ### About the DESCRIPTION file
 

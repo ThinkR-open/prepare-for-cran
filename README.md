@@ -45,6 +45,10 @@ CRAN submission of a new version should not be done too frequently. One time eve
 
 When resubmitting after a CRAN feedback, be sure to include that this is a resubmission after a feedback, and describe what you have done.
 
+#### Bump your version number
+
+If you resubmit after a CRAN feedback, add 1 to the patch component of your version number (e.g, if your first submission is 0.3.1, your resubmission should be 0.3.2).
+
 ### About the DESCRIPTION file
 
 #### Fill all the slots 

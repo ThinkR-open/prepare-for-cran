@@ -49,6 +49,10 @@ When resubmitting after a CRAN feedback, be sure to include that this is a resub
 
 If you resubmit after a CRAN feedback, add 1 to the patch component of your version number (e.g, if your first submission is 0.3.1, your resubmission should be 0.3.2).
 
+#### Don't forget to drop the dev component of your version number
+
+If you have a major.minor.patch.dev version number, don't drop the dev element.
+
 ### About the DESCRIPTION file
 
 #### Fill all the slots 

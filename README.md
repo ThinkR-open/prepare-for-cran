@@ -85,7 +85,7 @@ If a function name is used in your DESCRIPTION, make sure to follow it with pare
 
 #### Cite a reference for implementation of a method or linking to a service.
 
-If you write an R interface to an API or implement an algorithm from a published article/book, add an reference to the publication as a DOI, ISBN, or similar canonical link, or UR for the API or article in the 'Description' field of your DESCRIPTION file.
+If you write an R interface to an API or implement an algorithm from a published article/book, add a reference to the publication as a DOI, ISBN, or similar canonical link, or URL for the API or article in the 'Description' field of your DESCRIPTION file.
 
 #### Use angle brackets for auto linking
 

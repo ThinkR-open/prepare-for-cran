@@ -101,9 +101,9 @@ with no space after `https:`, `doi:`, `arXiv:` and angle brackets for auto-linki
 
 ### Documentation 
 
-#### Use canonical and https url 
+#### Use canonical and https URL 
 
-If there are some urls in your documentation, be sure to: 
+If there are some URLs in your documentation, be sure to: 
 
 + use https
 + use the canonical form for CRAN package (i.e.: https://CRAN.R-project.org/package=***)

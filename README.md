@@ -108,6 +108,15 @@ If there are some URLs in your documentation, be sure to:
 + use https
 + use the canonical form for CRAN package (i.e.: https://CRAN.R-project.org/package=***)
 
+#### Long running examples
+
+If you have examples that take more than a few seconds each to run, wrap them in `\donttest{}`, don't use `dontrun{}`.
+
+```
+#' @example
+#' \donttest{x <- foo(y)}
+```
+
 ### Package structure
 
 #### Use temporary files and folder if you write on the disk 

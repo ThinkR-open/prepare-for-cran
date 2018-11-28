@@ -154,6 +154,8 @@ If packages depend on your package, you should run a reverse dependencies test w
 
 + [Mastering Software Development in R](https://bookdown.org/rdpeng/RProgDA/) - by Roger D. Peng, Sean Kross, and Brooke Anderson.
 
-+ [How to develop good R packages (for open science)](http://www.masalmon.eu/2017/12/11/goodrpackages/) - by Maëlle Salmon 
++ [How to develop good R packages (for open science)](http://www.masalmon.eu/2017/12/11/goodrpackages/) - by Maëlle Salmon (including list of tutorials)
 
 + [Sinew: Simple R Package Documentation](https://metrumresearchgroup.github.io/sinew/) - by Jonathan Sidi
+
++ [rOpenSci Packages: Development, Maintenance, and Peer Review](https://ropensci.github.io/dev_guide/) - by rOpenSci onboarding editors

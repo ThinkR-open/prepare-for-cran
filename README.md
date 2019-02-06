@@ -168,3 +168,20 @@ If packages depend on your package, you should run a reverse dependencies test w
 + [Sinew: Simple R Package Documentation](https://metrumresearchgroup.github.io/sinew/) - by Jonathan Sidi
 
 + [rOpenSci Packages: Development, Maintenance, and Peer Review](https://ropensci.github.io/dev_guide/) - by rOpenSci onboarding editors
+
+## What to do once your package is ready? 
+
+#### Using devtools::release()
+
+The `devtools::release()` asks you a series of question about common things to be sure you've done before releasing. 
+
+#### Confirm by following the link 
+
+You'll receive a link in your mailbox. Click on this link to confirm the upload. 
+
+### Wait for the release
+
+Depending on the package, it might take between one hour and several weeks, if it needs manual inspection, it can take some time. 
+
+You can watch the status of your package with `{cransays}` = https://itsalocke.com/cransays/articles/dashboard
+

@@ -31,6 +31,10 @@ The `{rhub}` package and API allow you to check your package on several platform
 
 More about `{rhub}`: <https://github.com/r-hub/rhub>
 
+### Check for windows
+
+Test that your package builds using the win-devl tool, or with devtools::check_win_devel()`.
+
 ## What next? 
 
 These two checks might not catch everything the CRAN team will catch, so here is a list of good practices, based on "after-submission exchanges" we had with the CRAN team:
@@ -183,5 +187,5 @@ You'll receive a link in your mailbox. Click on this link to confirm the upload.
 
 Depending on the package, it might take between one hour and several weeks, if it needs manual inspection, it can take some time. 
 
-You can watch the status of your package with `{cransays}` = https://itsalocke.com/cransays/articles/dashboard
+You can watch the status of your package with `{cransays}`: https://itsalocke.com/cransays/articles/dashboard
 

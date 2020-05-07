@@ -4,11 +4,11 @@ An open and collaborative list of things you have to check before submitting you
 
 ## Why this repo? 
 
-This repo was born after recent exchanges on Twitter regarding the CRAN submission process, especially [this thread](https://twitter.com/yoniceedee/status/989281686142771203). 
+This repo was born after exchanges on Twitter regarding the CRAN submission process, especially [this thread](https://twitter.com/yoniceedee/status/989281686142771203). 
 
 The idea here is to collect ground rules that would help the CRAN doing there work more easily, by listing common (or uncommon) things that they ask maintainers to change in order to be CRAN-proof.    
 
-CRAN submission is strict, the CRAN team is doing its work voluntarily, and there are more than 12K packages to maintain. 
+CRAN submission is strict, the CRAN team is doing its work voluntarily, and there are more than 15K packages to maintain. 
 
 We believe we can help them by giving some good practices about package development and CRAN submission, so that package authors can work on these issues before the CRAN team ask them to do so. Hence, we could save everyone time by preventing the CRAN team from sending you an email because there is "with R" in the title of your DESCRIPTION. Because, as said by [Peter Dalgaard](https://twitter.com/pdalgd/status/989944476398432257): 
 
@@ -25,6 +25,10 @@ If you're in RStudio, you can also click on Build > Check.
 
 > If ever you think these warnings or notes are not justified, leave a comment when submitting where you specify why you think this is not justified.
 
+### Use a spellcheck
+
+You can call `usethis::use_spell_check()` inside your package to add a test for spelling. 
+
 ### Use `{rhub}`
 
 The `{rhub}` package and API allow you to check your package on several platforms, and for CRAN with `rhub::check_for_cran()`.
@@ -33,13 +37,15 @@ More about `{rhub}`: <https://github.com/r-hub/rhub>
 
 ### Check for windows
 
-Test that your package builds using the win-devl tool, or with devtools::check_win_devel()`.
+Test that your package builds using the win-devl tool, or with `devtools::check_win_devel()`.
 
 ## What next? 
 
 These two checks might not catch everything the CRAN team will catch, so here is a list of good practices, based on "after-submission exchanges" we had with the CRAN team:
 
 ### (Re)submission
+
+Note that if this is your first submission, you will automatically have a NOTE, for `New submission`.
 
 #### Temporality
 
@@ -54,6 +60,13 @@ When resubmitting after a CRAN feedback, be sure to include that this is a resub
 If you resubmit after a CRAN feedback, add 1 to the patch component of your version number (e.g, if your first submission is 0.3.1, your resubmission should be 0.3.2).
 
 ### About the DESCRIPTION file
+
+#### Spelling
+
+CRAN can reject packages that have grammar errors on the `DESCRIPTION`. 
+Some common spelling errors: 
+  - Other packages should be between `'` (example: `Lorem-Ipsum Helper Function for 'shiny' Prototyping`)
+  - Acronyms should be capitalized (exemple: `API`, not `Api`)
 
 #### Fill all the slots 
 
@@ -120,6 +133,10 @@ If you have examples that take more than a few seconds each to run, wrap them in
 #' @example
 #' \donttest{x <- foo(y)}
 ```
+
+### Fill all the values in documentation
+
+There should be no empty tags in the documentation (for the one requiring a value).
 
 ### Package structure
 

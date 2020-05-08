@@ -14,8 +14,7 @@ We believe we can help them by giving some good practices about package developm
 
 > too many people do not realise that the CRAN maintainer group can be counted on one hand, even one finger at times. 
 
-
-## Check your package
+## Package Infrastructure Check
 
 ### Be sure that `devtools::check()` returns 0 0 0 
 
@@ -28,6 +27,7 @@ If you're in RStudio, you can also click on Build > Check.
 ### Use a spellcheck
 
 You can call `usethis::use_spell_check()` inside your package to add a test for spelling. 
+Call `spelling::spell_check_package()` at any time if you need to run the spellcheck.
 
 ### Use `{rhub}`
 
@@ -39,9 +39,9 @@ More about `{rhub}`: <https://github.com/r-hub/rhub>
 
 Test that your package builds using the win-devl tool, or with `devtools::check_win_devel()`.
 
-## What next? 
+## Submission
 
-These two checks might not catch everything the CRAN team will catch, so here is a list of good practices, based on "after-submission exchanges" we had with the CRAN team:
+These checks might not catch everything the CRAN team will catch, so here is a list of good practices:
 
 ### (Re)submission
 
@@ -59,24 +59,36 @@ When resubmitting after a CRAN feedback, be sure to include that this is a resub
 
 If you resubmit after a CRAN feedback, add 1 to the patch component of your version number (e.g, if your first submission is 0.3.1, your resubmission should be 0.3.2).
 
-### About the DESCRIPTION file
+## General Comments
 
-#### Spelling
+### Spelling
 
 CRAN can reject packages that have grammar errors on the `DESCRIPTION`. 
 Some common spelling errors: 
   - Other packages should be between `'` (example: `Lorem-Ipsum Helper Function for 'shiny' Prototyping`)
   - Acronyms should be capitalized (exemple: `API`, not `Api`)
 
-#### Fill all the slots 
+## About the DESCRIPTION file
+
+### You're the copyright holder
+
+`DESCRIPTION` file should have a `cph` (copyright holder). 
+It can either be the first author, or the company where the author(s) work(s). 
+
+### Fill all the slots 
 
 This might not be caught by the CRAN, but be sure you have filled everything in this file. 
 
-#### Do not put 'in R' or 'with R' in the package title
+### Do not put 'in R' or 'with R' in the package title
 
-It's tempting to write something like ['A friendlier condition handler for R'](https://github.com/ColinFay/attempt) or ['Easy Dockerfile creation for R'](https://github.com/ColinFay/dockerfiler) in the title of your repository on GitHub (and seems appropriate). The CRAN team will ask you to remove this, as it is redundant (you're only dealing with R packages on the CRAN).
+It's tempting to write something like ['A friendlier condition handler for R'](https://github.com/ColinFay/attempt) or ['Easy Dockerfile creation for R'](https://github.com/ColinFay/dockerfiler) in the title of your repository on GitHub (and seems appropriate). 
+The CRAN team will ask you to remove this, as it is redundant (you're only dealing with R packages on the CRAN).
 
-#### Package title should be in title case
+### Description should be a paragraph
+
+Write an elaborated Description  field. 
+
+### Package title should be in title case
 
 The title should be in title case
 
@@ -84,27 +96,27 @@ The title should be in title case
 
 Note: this should be caught by r-hub.
 
-#### Polish the description of your package
+### Polish the description of your package
 
 A CRAN-proof package should have a long description that explains what the package does,  what are the benefits, what is new and how does it differ from what is already on the CRAN.
 
-#### Do not put 'package' in the DESCRIPTION
+### Do not put "This package", package name, title or similar in the Description
 
 Neither the title nor the description should start with "A package..." or with the name of the package.
 
-#### Use quote if needed
+### Use quote if needed
 
 If you quote another package, an article/book or a website/API, put its name between single quote `'`.
 
-#### Use parentheses after function names
+### Use parentheses after function names
 
 If a function name is used in your DESCRIPTION, make sure to follow it with parentheses.  e.g., "provides a drop-in replacement for cat() from the 'base' package."
 
-#### Cite a reference for implementation of a method or linking to a service.
+### Cite a reference for implementation of a method or linking to a service.
 
 If you write an R interface to an API or implement an algorithm from a published article/book, add a reference to the publication as a DOI, ISBN, or similar canonical link, or URL for the API or article in the 'Description' field of your DESCRIPTION file.
 
-#### Use angle brackets for auto linking
+### Use angle brackets for auto linking
 
 When linking to an article or website in the DESCRIPTION, use angle brackets to auto-link.
 
@@ -116,16 +128,26 @@ authors (year, ISBN:...)
 ```
 with no space after `https:`, `doi:`, `arXiv:` and angle brackets for auto-linking. 
 
-### Documentation 
+## Documentation 
 
-#### Use canonical and https URL 
+### All exported functions should have a return value
+
+All the exported functions in your package should have a `@return` value. 
+If a function does not return a value, document that too.
+
+### About \dontrun{} 
+
+`\dontrun{}` elements in the examples might in fact be run by CRAN. 
+If you don't want an example to be run, wrap it between `if (interactive()) {}`.
+
+### Use canonical and https URL 
 
 If there are some URLs in your documentation, be sure to: 
 
 + use https
 + use the canonical form for CRAN package (i.e.: https://CRAN.R-project.org/package=***)
 
-#### Long running examples
+### Long running examples
 
 If you have examples that take more than a few seconds each to run, wrap them in `\donttest{}`, don't use `dontrun{}`.
 
@@ -138,9 +160,9 @@ If you have examples that take more than a few seconds each to run, wrap them in
 
 There should be no empty tags in the documentation (for the one requiring a value).
 
-### Package structure
+## Package structure
 
-#### Use temporary files and folder if you write on the disk 
+### Use temporary files and folder if you write on the disk 
 
 CRAN Repository Policy state : 
 
@@ -170,31 +192,15 @@ write.csv(iris, file = tmp)
 
 See: [Create Names for Temporary Files](https://stat.ethz.ch/R-manual/R-devel/library/base/html/tempfile.html)
 
-### About revdep 
+## About revdep 
 
 If packages depend on your package, you should run a reverse dependencies test with `devtools::revdep_check()`.
-
-### Free resources to learn about package development : 
-
-#### Books and blogposts
-
-+ [R packages](http://r-pkgs.had.co.nz/) - by Hadley Wickham
-
-+ [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html) - Official Documentation
-
-+ [Mastering Software Development in R](https://bookdown.org/rdpeng/RProgDA/) - by Roger D. Peng, Sean Kross, and Brooke Anderson.
-
-+ [How to develop good R packages (for open science)](http://www.masalmon.eu/2017/12/11/goodrpackages/) - by Maëlle Salmon (including list of tutorials)
-
-+ [Sinew: Simple R Package Documentation](https://metrumresearchgroup.github.io/sinew/) - by Jonathan Sidi
-
-+ [rOpenSci Packages: Development, Maintenance, and Peer Review](https://ropensci.github.io/dev_guide/) - by rOpenSci onboarding editors
 
 ## What to do once your package is ready? 
 
 #### Using devtools::release()
 
-The `devtools::release()` asks you a series of question about common things to be sure you've done before releasing. 
+You can run `devtools::release()` to automatically send to CRAN from R.
 
 #### Confirm by following the link 
 
@@ -206,3 +212,22 @@ Depending on the package, it might take between one hour and several weeks, if i
 
 You can watch the status of your package with `{cransays}`: https://itsalocke.com/cransays/articles/dashboard
 
+## Resources to learn about package development : 
+
+### Books and blogposts
+
++ [Checklist for CRAN submissions](https://cran.r-project.org/web/packages/submission_checklist.html)
+
++ [CRAN Repository Policy](https://cran.r-project.org/web/packages/policies.html)
+
++ [R packages](http://r-pkgs.org) - by Hadley Wickham & Jennifer Bryan
+
++ [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html) - Official Documentation
+
++ [Mastering Software Development in R](https://bookdown.org/rdpeng/RProgDA/) - by Roger D. Peng, Sean Kross, and Brooke Anderson.
+
++ [How to develop good R packages (for open science)](http://www.masalmon.eu/2017/12/11/goodrpackages/) - by Maëlle Salmon (including list of tutorials)
+
++ [Sinew: Simple R Package Documentation](https://metrumresearchgroup.github.io/sinew/) - by Jonathan Sidi
+
++ [rOpenSci Packages: Development, Maintenance, and Peer Review](https://ropensci.github.io/dev_guide/) - by rOpenSci onboarding editors

@@ -37,7 +37,7 @@ More about `{rhub}`: <https://github.com/r-hub/rhub>
 
 ### Check for windows
 
-Test that your package builds using the win-devl tool, or with `devtools::check_win_devel()`.
+Test that your package builds using the [win-builder](https://win-builder.r-project.org/) tool, or with `devtools::check_win_devel()`.
 
 ## Submission
 
@@ -66,7 +66,7 @@ If you resubmit after a CRAN feedback, add 1 to the patch component of your vers
 CRAN can reject packages that have grammar errors on the `DESCRIPTION`. 
 Some common spelling errors: 
   - Other packages should be between `'` (example: `Lorem-Ipsum Helper Function for 'shiny' Prototyping`)
-  - Acronyms should be capitalized (exemple: `API`, not `Api`)
+  - Acronyms should be capitalized (example: `API`, not `Api`)
 
 ## About the DESCRIPTION file
 

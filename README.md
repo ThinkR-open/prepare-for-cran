@@ -194,7 +194,7 @@ See: [Create Names for Temporary Files](https://stat.ethz.ch/R-manual/R-devel/li
 
 ## About revdep 
 
-If packages depend on your package, you should run a reverse dependencies test with `devtools::revdep_check()`.
+If packages depend on your package, you should run a reverse dependencies test with `devtools::revdep()`.
 
 ## What to do once your package is ready? 
 

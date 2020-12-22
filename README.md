@@ -104,9 +104,9 @@ A CRAN-proof package should have a long description that explains what the packa
 
 Neither the title nor the description should start with "A package..." or with the name of the package.
 
-### Use quote if needed
+### Use quote and upper case if needed
 
-If you quote another package, an article/book or a website/API, put its name between single quote `'`.
+If you quote another package, an article/book or a website/API, put its name between single quote `'`. Also, package names are case sensitive. e.g. 'shiny' --> 'Shiny'.
 
 ### Use parentheses after function names
 

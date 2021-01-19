@@ -210,7 +210,7 @@ You'll receive a link in your mailbox. Click on this link to confirm the upload.
 
 Depending on the package, it might take between one hour and several weeks, if it needs manual inspection, it can take some time. 
 
-You can watch the status of your package with `{cransays}`: https://itsalocke.com/cransays/articles/dashboard
+You can watch the status of your package with `{cransays}`: https://lockedata.github.io/cransays/articles/dashboard.html
 
 ## Resources to learn about package development : 
 

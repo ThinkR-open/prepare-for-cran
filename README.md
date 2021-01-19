@@ -146,6 +146,7 @@ If there are some URLs in your documentation, be sure to:
 
 + use https
 + use the canonical form for CRAN package (i.e.: https://CRAN.R-project.org/package=***)
++ use canonical form for Bioconductor package (i.e.: https://bioconductor.org/packages/***)
 
 ### Long running examples
 

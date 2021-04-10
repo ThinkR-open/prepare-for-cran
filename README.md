@@ -204,6 +204,12 @@ If packages depend on your package, you should run a reverse dependencies test w
 
 ## What to do once your package is ready? 
 
+#### CRAN submission comments
+
+Creates cran-comments.md, a template for your communications with CRAN when submitting a package. The goal is to clearly communicate the steps you have taken to check your package on a wide range of operating systems. If you are submitting an update to a package that is used by other packages, you also need to summarize the results of your reverse dependency checks.
+
+`usethis::use_cran_comments(open = rlang::is_interactive())`
+
 #### Using devtools::release()
 
 You can run `devtools::release()` to automatically send to CRAN from R.

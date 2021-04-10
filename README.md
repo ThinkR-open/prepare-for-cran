@@ -39,6 +39,10 @@ More about `{rhub}`: <https://github.com/r-hub/rhub>
 
 Test that your package builds using the [win-builder](https://win-builder.r-project.org/) tool, or with `devtools::check_win_devel()`.
 
+### Explore potential solutions to errors returned by CRAN or win-builder
+
+See https://github.com/DavisVaughan/extrachecks
+
 ## Submission
 
 These checks might not catch everything the CRAN team will catch, so here is a list of good practices:
@@ -196,6 +200,7 @@ See: [Create Names for Temporary Files](https://stat.ethz.ch/R-manual/R-devel/li
 ## About revdep 
 
 If packages depend on your package, you should run a reverse dependencies test with `devtools::revdep()`.
+
 
 ## What to do once your package is ready? 
 

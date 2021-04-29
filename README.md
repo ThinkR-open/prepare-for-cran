@@ -139,6 +139,8 @@ with no space after `https:`, `doi:`, `arXiv:` and angle brackets for auto-linki
 All the exported functions in your package should have a `@return` value. 
 If a function does not return a value, document that too.
 
+If there is an internal function (not exported) with partial documentation (title, and.or `@param`), use the tag `#' @noRd` to avoid generating documentation.
+
 ### About \dontrun{} 
 
 `\dontrun{}` elements in the examples might in fact be run by CRAN. 

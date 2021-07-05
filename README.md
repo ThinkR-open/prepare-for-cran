@@ -139,7 +139,8 @@ with no space after `https:`, `doi:`, `arXiv:` and angle brackets for auto-linki
 All the exported functions in your package should have a `@return` value. 
 If a function does not return a value, document that too.
 
-If there is an internal function (not exported) with partial documentation (title, and.or `@param`), use the tag `#' @noRd` to avoid generating documentation.
+If there is an internal function (not exported) with partial documentation (title, and.or `@param`), use the tag `#' @noRd` to avoid generating documentation.  
+You can use `checkhelper::find_missing_tags()` to help you find the missing tags in your documentation. Install {checkhelper} from GitHub: https://github.com/ThinkR-open/checkhelper
 
 ### About \dontrun{} 
 

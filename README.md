@@ -169,6 +169,8 @@ If you have examples that take more than a few seconds each to run, wrap them in
 ### Fill all the values in documentation
 
 There should be no empty tags in the documentation (for the one requiring a value).
+`devtools::check()` detects empty `@param` and `@return` outputs.  
+Again, you can use `checkhelper::find_missing_tags()` to help you find the missing tags in your documentation. Install {checkhelper} from GitHub: https://github.com/ThinkR-open/checkhelper
 
 ## Package structure
 

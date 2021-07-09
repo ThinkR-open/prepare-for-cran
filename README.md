@@ -21,6 +21,9 @@ There are still steps to add to list automated tests as detailed in the followin
 ```r
 # Prepare for CRAN ----
 
+# Update dependencies in DESCRIPTION
+attachment::att_amend_desc()
+
 # Run tests and examples
 devtools::test()
 devtools::run_examples()

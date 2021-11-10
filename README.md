@@ -53,6 +53,23 @@ rhub::check_on_solaris()
 # _win devel
 devtools::check_win_devel()
 
+# Check reverse dependencies
+# remotes::install_github("r-lib/revdepcheck")
+usethis::use_git_ignore("revdep/")
+usethis::use_build_ignore("revdep/")
+
+devtools::revdep()
+library(revdepcheck)
+# In another session
+id <- rstudioapi::terminalExecute("Rscript -e 'revdepcheck::revdep_check(num_workers = 4)'")
+rstudioapi::terminalKill(id)
+# See outputs
+revdep_details(revdep = "pkg")
+revdep_summary()                 # table of results by package
+revdep_report() # in revdep/
+# Clean up when on CRAN
+revdep_reset()
+
 # Update NEWS
 # Bump version manually and add list of changes
 
@@ -262,8 +279,27 @@ See: [Create Names for Temporary Files](https://stat.ethz.ch/R-manual/R-devel/li
 
 ## About revdep 
 
-If packages depend on your package, you should run a reverse dependencies test with `devtools::revdep()`.
+If packages depend on your package, you should run a reverse dependencies test on packages listed with `devtools::revdep()`.  
+Use {revdepcheck}: https://github.com/r-lib/revdepcheck
 
+```r
+# Check reverse dependencies
+# remotes::install_github("r-lib/revdepcheck")
+usethis::use_git_ignore("revdep/")
+usethis::use_build_ignore("revdep/")
+
+devtools::revdep()
+library(revdepcheck)
+# In another session
+id <- rstudioapi::terminalExecute("Rscript -e 'revdepcheck::revdep_check(num_workers = 4)'")
+rstudioapi::terminalKill(id)
+# See outputs
+revdep_details(revdep = "pkg")
+revdep_summary()                 # table of results by package
+revdep_report() # in revdep/
+# Clean up when on CRAN
+revdep_reset()
+```
 
 ## What to do once your package is ready? 
 

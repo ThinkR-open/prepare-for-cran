@@ -91,6 +91,10 @@ More about `{rhub}`: <https://github.com/r-hub/rhub>
 
 Test that your package builds using the [win-builder](https://win-builder.r-project.org/) tool, or with `devtools::check_win_devel()`.
 
+### Check for MacOS - CRAN M1 build machine
+
+Build and manually submit your archive here: https://mac.r-project.org/macbuilder/submit.html
+
 ### Explore potential solutions to errors returned by CRAN or win-builder
 
 See https://github.com/DavisVaughan/extrachecks

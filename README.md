@@ -342,3 +342,5 @@ You can watch the status of your package with `{cransays}`: https://lockedata.gi
 + [Sinew: Simple R Package Documentation](https://metrumresearchgroup.github.io/sinew/) - by Jonathan Sidi
 
 + [rOpenSci Packages: Development, Maintenance, and Peer Review](https://ropensci.github.io/dev_guide/) - by rOpenSci onboarding editors
+
++ [Awesome R package development](https://github.com/IndrajeetPatil/awesome-r-pkgtools/blob/master/README.md) - by Indrajeet Patil (A curated list of awesome tools for R package development)

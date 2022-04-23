@@ -218,7 +218,7 @@ You can use `checkhelper::find_missing_tags()` to help you find the missing tags
 ### About \dontrun{} 
 
 `\dontrun{}` elements in the examples might in fact be run by CRAN. 
-If you don't want an example to be run, wrap it between `if (interactive()) {}`.
+If you don't want an example to be run, wrap it between `if (interactive()) {}`. Do not wrap example between `if (FALSE) {}`.
 
 ### Use canonical and https URL 
 

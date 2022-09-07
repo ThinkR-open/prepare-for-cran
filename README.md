@@ -245,6 +245,17 @@ There should be no empty tags in the documentation (for the one requiring a valu
 `devtools::check()` detects empty `@param` and `@return` outputs.  
 Again, you can use `checkhelper::find_missing_tags()` to help you find the missing tags in your documentation. Install {checkhelper} from GitHub: https://github.com/ThinkR-open/checkhelper
 
+### About HTML5
+
+If you got this problem on CRAN
+```
+Warning: <img> attribute "align" not allowed for HTML5 
+```
+
+You can follow these steps: 
+
+https://github.com/DavisVaughan/extrachecks-html5
+
 ## Package structure
 
 ### Use temporary files and folder if you write on the disk 

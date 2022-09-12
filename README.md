@@ -22,6 +22,7 @@ There are still steps to add to list automated tests as detailed in the followin
 # Prepare for CRAN ----
 
 # Update dependencies in DESCRIPTION
+# install.packages('attachment', repos = 'https://thinkr-open.r-universe.dev')
 attachment::att_amend_desc()
 
 # Run tests and examples
@@ -33,7 +34,7 @@ devtools::run_examples()
 rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"))
 
 # Check content
-# remotes::install_github("ThinkR-open/checkhelper")
+# install.packages('checkhelper', repos = 'https://thinkr-open.r-universe.dev')
 checkhelper::find_missing_tags()
 
 # Check spelling

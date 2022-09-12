@@ -42,7 +42,7 @@ checkhelper::find_missing_tags()
 spelling::spell_check_package()
 
 # Check URL are correct
-# remotes::install_github("r-lib/urlchecker")
+# install.packages('urlchecker', repos = 'https://r-lib.r-universe.dev')
 urlchecker::url_check()
 urlchecker::url_update()
 
@@ -56,6 +56,7 @@ devtools::check_win_devel()
 
 # Check reverse dependencies
 # remotes::install_github("r-lib/revdepcheck")
+install.packages('revdepcheck', repos = 'https://r-lib.r-universe.dev')
 usethis::use_git_ignore("revdep/")
 usethis::use_build_ignore("revdep/")
 

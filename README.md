@@ -222,6 +222,14 @@ You can use `checkhelper::find_missing_tags()` to help you find the missing tags
 `\dontrun{}` elements in the examples might in fact be run by CRAN. 
 If you don't want an example to be run, wrap it between `if (interactive()) {}`. Do not wrap example between `if (FALSE) {}`.
 
+\dontrun{} should only be used if the example really cannot be executed
+(e.g. because of missing additional software, missing API keys, ...) by
+the user. That's why wrapping examples in \dontrun{} adds the comment
+("# Not run:") as a warning for the user.
+
+Unwrap the examples if they are executable in < 5 sec, or replace
+\dontrun{} with \donttest{}.
+
 ### Use canonical and https URL 
 
 If there are some URLs in your documentation, be sure to: 

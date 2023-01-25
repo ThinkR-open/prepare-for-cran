@@ -36,6 +36,8 @@ rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"))
 # Check content
 # install.packages('checkhelper', repos = 'https://thinkr-open.r-universe.dev')
 checkhelper::find_missing_tags()
+# _Check that you let the house clean after the check, examples and tests
+checkhelper::check_clean_userspace()
 
 # Check spelling
 # usethis::use_spell_check()

@@ -220,18 +220,19 @@ If a function does not return a value, document that too.
 If there is an internal function (not exported) with partial documentation (title, and.or `@param`), use the tag `#' @noRd` to avoid generating documentation.  
 You can use `checkhelper::find_missing_tags()` to help you find the missing tags in your documentation. Install {checkhelper} from GitHub: https://github.com/ThinkR-open/checkhelper
 
-### About \dontrun{} 
+### About `\dontrun{}` 
 
 `\dontrun{}` elements in the examples might in fact be run by CRAN. 
 If you don't want an example to be run, wrap it between `if (interactive()) {}`. Do not wrap example between `if (FALSE) {}`.
 
-\dontrun{} should only be used if the example really cannot be executed
+`\dontrun{}` should only be used if the example really cannot be executed
 (e.g. because of missing additional software, missing API keys, ...) by
-the user. That's why wrapping examples in \dontrun{} adds the comment
+the user. That's why wrapping examples in `\dontrun{}` adds the comment
 ("# Not run:") as a warning for the user.
 
 Unwrap the examples if they are executable in < 5 sec, or replace
-\dontrun{} with \donttest{}.
+`\dontrun{}` with `\donttest{}`.  
+Note that `\donttest{}` will be run by `check()` and may be run by CRAN...
 
 ### Use canonical and https URL 
 

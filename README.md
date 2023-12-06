@@ -54,8 +54,10 @@ urlchecker::url_update()
 devtools::check_rhub()
 rhub::check_on_windows(check_args = "--force-multiarch")
 rhub::check_on_solaris()
-# _win devel
+# _win devel CRAN
 devtools::check_win_devel()
+# _macos CRAN
+devtools::check_mac_release()
 
 # Check reverse dependencies
 # remotes::install_github("r-lib/revdepcheck")

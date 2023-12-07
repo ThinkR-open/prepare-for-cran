@@ -246,6 +246,35 @@ If there are some URLs in your documentation, be sure to:
 
 You can use {urlchecker} to help: https://github.com/r-lib/urlchecker
 
+### Do not use relative paths for links to files (e.g. `README.md`, `NEWS.md`, `LICENSE.md`)
+
+If you have relative URIs pointing to files like `NEWS.md` or `CODE_OF_CONDUCT.md` from within the `README.md` for instance:
+
+```{markdown}
+Code is distributed under the [GPL-3.0-License](LICENSE.md).
+```
+
+They will throw the following CRAN error:
+
+```
+Found the following (possibly) invalid file URIs:
+     URI: LICENSE.md
+       From: README.md
+```
+
+Changing the relative links to absolute links pointing to the {pkgdown} website does the trick (see the Code of conduct in `{dplyr}` README) 
+
+```{markdown}
+Code is distributed under the [GPL-3.0-License](https://USERNAME.github.io/MY_PACKAGE/LICENSE.html).
+```
+
+Pointing to an external resource, for a license, also works (see the `{golem}` README):
+
+```{markdown}
+Code is distributed under the [GPL-3.0-License](https://www.gnu.org/licenses/gpl-3.0.en.html).
+```
+
+
 ### Long running examples
 
 If you have examples that take more than a few seconds each to run, wrap them in `\donttest{}`, don't use `dontrun{}`.

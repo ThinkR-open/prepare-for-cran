@@ -29,15 +29,20 @@ attachment::att_amend_desc()
 covr::package_coverage()
 covr::report()
 
-# Run tests and examples
+# Run tests
 devtools::test()
+testthat::test_dir("tests/testthat/")
+
+# Run examples 
 devtools::run_examples()
+
 # autotest::autotest_package(test = TRUE)
 
 # Check package as CRAN using the correct CRAN repo
 withr::with_options(list(repos = c(CRAN = "https://cloud.r-project.org/")),
                      {callr::default_repos()
                          rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran")) })
+# devtools::check(args = c("--no-manual", "--as-cran"))
 
 # Check content
 # install.packages('checkhelper', repos = 'https://thinkr-open.r-universe.dev')
@@ -62,8 +67,24 @@ urlchecker::url_update()
 devtools::check_rhub()
 # List all R-hub platforms:
 rhub::platforms()
-rhub::check_on_windows(check_args = "--force-multiarch")
-rhub::check_on_solaris()
+buildpath <- devtools::build()
+rhub::check_on_windows(check_args = "--force-multiarch",
+                       show_status = FALSE,
+                       path = buildpath)
+rhub::check_on_solaris(show_status = FALSE, path = buildpath)
+rhub::check(platform = "debian-clang-devel",
+            show_status = FALSE,
+            path = buildpath)
+rhub::check(platform = "debian-gcc-devel",
+            show_status = FALSE,
+            path = buildpath)
+rhub::check(platform = "fedora-clang-devel",
+            show_status = FALSE,
+            path = buildpath)
+rhub::check(platform = "macos-highsierra-release-cran",
+            show_status = FALSE,
+            path = buildpath)
+rhub::check_for_cran(show_status = FALSE, path = buildpath)
 
 # _win devel CRAN
 devtools::check_win_devel()
@@ -86,10 +107,10 @@ rstudioapi::terminalKill(id)
 # if [Exit Code] is not 0, there is a problem !
 # to see the problem: execute the command in a new terminal manually.
 
-# See outputs
+# See outputs now available in revdep/
 revdep_details(revdep = "pkg")
 revdep_summary()                 # table of results by package
-revdep_report() # in revdep/
+revdep_report()
 # Clean up when on CRAN
 revdep_reset()
 

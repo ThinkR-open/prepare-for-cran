@@ -25,22 +25,37 @@ There are still steps to add to list automated tests as detailed in the followin
 # install.packages('attachment', repos = 'https://thinkr-open.r-universe.dev')
 attachment::att_amend_desc()
 
-# Run tests and examples
+# Check package coverage
+covr::package_coverage()
+covr::report()
+
+# Run tests
 devtools::test()
+testthat::test_dir("tests/testthat/")
+
+# Run examples 
 devtools::run_examples()
+
 # autotest::autotest_package(test = TRUE)
 
-# Check package as CRAN
-rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"))
+# Check package as CRAN using the correct CRAN repo
+withr::with_options(list(repos = c(CRAN = "https://cloud.r-project.org/")),
+                     {callr::default_repos()
+                         rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran")) })
+# devtools::check(args = c("--no-manual", "--as-cran"))
 
 # Check content
 # install.packages('checkhelper', repos = 'https://thinkr-open.r-universe.dev')
+# All functions must have either `@noRd` or an `@export`.
 checkhelper::find_missing_tags()
-# _Check that you let the house clean after the check, examples and tests
+
+# Check that you let the house clean after the check, examples and tests
+# If you used parallel testing, you may need to avoid it for the next check with `Config/testthat/parallel: false` in DESCRIPTION
 all_files_remaining <- checkhelper::check_clean_userspace()
 all_files_remaining
+# If needed, set back parallel testing with `Config/testthat/parallel: true` in DESCRIPTION
 
-# Check spelling
+# Check spelling - No typo
 # usethis::use_spell_check()
 spelling::spell_check_package()
 
@@ -52,28 +67,52 @@ urlchecker::url_update()
 # check on other distributions
 # _rhub
 devtools::check_rhub()
-rhub::check_on_windows(check_args = "--force-multiarch")
-rhub::check_on_solaris()
+# List all R-hub platforms:
+rhub::platforms()
+buildpath <- devtools::build()
+rhub::check_on_windows(check_args = "--force-multiarch",
+                       show_status = FALSE,
+                       path = buildpath)
+rhub::check_on_solaris(show_status = FALSE, path = buildpath)
+rhub::check(platform = "debian-clang-devel",
+            show_status = FALSE,
+            path = buildpath)
+rhub::check(platform = "debian-gcc-devel",
+            show_status = FALSE,
+            path = buildpath)
+rhub::check(platform = "fedora-clang-devel",
+            show_status = FALSE,
+            path = buildpath)
+rhub::check(platform = "macos-highsierra-release-cran",
+            show_status = FALSE,
+            path = buildpath)
+rhub::check_for_cran(show_status = FALSE, path = buildpath)
+
 # _win devel CRAN
 devtools::check_win_devel()
+# _win release CRAN
+devtools::check_win_release()
 # _macos CRAN
+# Need to follow the URL proposed to see the results
 devtools::check_mac_release()
 
 # Check reverse dependencies
 # remotes::install_github("r-lib/revdepcheck")
-install.packages('revdepcheck', repos = 'https://r-lib.r-universe.dev')
 usethis::use_git_ignore("revdep/")
 usethis::use_build_ignore("revdep/")
 
 devtools::revdep()
 library(revdepcheck)
-# In another session
+# In another session because Rstudio interactive change your config:
 id <- rstudioapi::terminalExecute("Rscript -e 'revdepcheck::revdep_check(num_workers = 4)'")
 rstudioapi::terminalKill(id)
-# See outputs
+# if [Exit Code] is not 0, there is a problem !
+# to see the problem: execute the command in a new terminal manually.
+
+# See outputs now available in revdep/
 revdep_details(revdep = "pkg")
 revdep_summary()                 # table of results by package
-revdep_report() # in revdep/
+revdep_report()
 # Clean up when on CRAN
 revdep_reset()
 

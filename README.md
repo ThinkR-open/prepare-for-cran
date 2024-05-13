@@ -65,28 +65,12 @@ urlchecker::url_check()
 urlchecker::url_update()
 
 # check on other distributions
-# _rhub
-devtools::check_rhub()
-# List all R-hub platforms:
-rhub::platforms()
-buildpath <- devtools::build()
-rhub::check_on_windows(check_args = "--force-multiarch",
-                       show_status = FALSE,
-                       path = buildpath)
-rhub::check_on_solaris(show_status = FALSE, path = buildpath)
-rhub::check(platform = "debian-clang-devel",
-            show_status = FALSE,
-            path = buildpath)
-rhub::check(platform = "debian-gcc-devel",
-            show_status = FALSE,
-            path = buildpath)
-rhub::check(platform = "fedora-clang-devel",
-            show_status = FALSE,
-            path = buildpath)
-rhub::check(platform = "macos-highsierra-release-cran",
-            show_status = FALSE,
-            path = buildpath)
-rhub::check_for_cran(show_status = FALSE, path = buildpath)
+# _rhub v2
+rhub::rhub_setup() # Commit, push, merge
+rhub::rhub_doctor()
+rhub::rhub_platforms()
+rhub::rhub_check() # launch manually
+
 
 # _win devel CRAN
 devtools::check_win_devel()
@@ -146,7 +130,8 @@ Call `spelling::spell_check_package()` at any time if you need to run the spellc
 
 ### Use `{rhub}`
 
-The `{rhub}` package and API allow you to check your package on several platforms, and for CRAN with `rhub::check_for_cran()`.
+The `{rhub}` package allows to check your package on several platforms with the CRAN default configuration, using GitHub Actions.  
+Run `rhub::rhub_setup()` and follow instructions.  
 
 More about `{rhub}`: <https://github.com/r-hub/rhub>
 
